@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload - Dragon</title>
+    <link rel="stylesheet" href="../assets/css/new.css">
+</head>
+
+<body>
+    <h1 class="upload_head">Upload Your File Here</h1>
+    <div class="input">
+        <input id="fileInput" type="file">
+        <p class="drag_drop">Drag and Drop Your File Here</p>
+    </div>
+    <div class="button">
+        <button id="upload_button" class="upload_button">Upload</button>
+        <a href="./home.html" class="upload_button upload_a">Home</a>
+    </div>
+</body>
+
+<script>
+    const uploadButton = document.getElementById('upload_button')
+    const fileInput = document.getElementById('fileInput');
+    uploadButton.addEventListener('click', async (e) => {
+        e.preventDefault()
+        const file = fileInput.files[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append('avatar', file);
+        try {
+            const response = await fetch('http://localhost:5000/api/files/upload', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+            if (response.ok) {
+                alert(data.message)
+            }
+            else {
+                console.log("Response Not Ok. ", data)
+            }
+        } catch (error) {
+            console.error('Error uploading image:', error);
+        }
+    })
+</script>
+
+</html>

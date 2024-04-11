@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@recogito/annotorious": "^2.7.13",
+    "pintura": "^0.3.10"
+  }
+}

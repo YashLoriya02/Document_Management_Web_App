@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Dragon</title>
+    <link rel="stylesheet" href="../assets/css/new.css">
+</head>
+
+<body>
+    <div>
+        <h1 class="profile_head">Profile</h1>
+    </div>
+    <div class="profile_container">
+        <div class="inner_container">
+            <label htmlFor="username">
+                Username
+            </label>
+            <input type="text" id='username' contentEditable="false" value={user.username} />
+        </div>
+        <div class="inner_container">
+            <label htmlFor="email">
+                Email
+            </label>
+            <input type="text" id='email' value={user.email} />
+        </div>
+        <div class="inner_container">
+            <label htmlFor="phone">
+                Phone
+            </label>
+            <input type="text" id='phone' value={user.phone} />
+        </div>
+        <a class="toHome" href="./home.html">Home</a>
+        <!-- <Link class="changePasswordLink" to={`/changePassword/${user._id}`}>Change Password</Link> -->
+    </div>
+    <script>
+        window.onload = async () => {
+            const token = localStorage.getItem('token')
+            try {
+                if (token) {
+                    const response = await fetch("http://localhost:5000/api/auth/user", {
+                        method: "GET",
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    })
+                    const data = await response.json()
+                    if (response.ok) {
+                        console.log(data.userData)
+                        document.getElementById('username').value = data.userData.username
+                        document.getElementById('email').value = data.userData.email
+                        document.getElementById('phone').value = data.userData.phone
+                    }
+                    else {
+                        console.log(data)
+                    }
+                }
+                else {
+                    alert("User not Authenticated.")
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    </script>
+</body>
+
+</html>

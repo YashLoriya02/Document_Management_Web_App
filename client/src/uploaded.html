@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Files</title>
+    <link rel="stylesheet" href="../assets/css/new.css">
+</head>
+
+<body>
+    <h1 style="text-align: center; font-size: 3rem; margin-top: 5rem;">Uploaded Files</h1>
+    <div style="display: flex; justify-content: center ; align-items: center; flex-direction: column;" class="main_uploaded">
+        <table id="user_table">
+            <thead>
+                <tr>
+                    <th>
+                        <p style="font-size: 2rem;" class='table_p'>File Name</p>
+                    </th>
+                    <th>
+                        <p style="font-size: 2rem;" class='table_p'>Mime-Type</p>
+                    </th>
+                    <th>
+                        <p style="font-size: 2rem;" class='table_p'>Data</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="user_table_body">
+            </tbody>
+        </table>
+        <a class="toHome" href="./home.html">Home</a>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const filesJson = urlParams.get('files');
+            if (filesJson) {
+                const files = JSON.parse(decodeURIComponent(filesJson));
+                populateTable(files);
+            } else {
+                console.error('No files data found in the URL');
+            }
+        });
+
+        function populateTable(files) {
+            const tableBody = document.getElementById('user_table_body');
+            tableBody.innerHTML = '';
+            files.forEach(file => {
+                console.log(file.data)
+                const row = document.createElement('tr');
+                row.innerHTML = `
+            <td>${file.filename}</td>
+            <td>${file.contentType}</td>
+            <td>${file.data.data}</td>
+        `;
+                tableBody.appendChild(row);
+            });
+        }
+    </script>
+</body>
+
+</html>

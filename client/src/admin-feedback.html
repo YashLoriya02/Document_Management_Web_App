@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users - Dragon</title>
+    <link rel="stylesheet" href="../assets/css/new.css">
+</head>
+
+<body>
+    <div class="main_admin">
+        <a href="/client/src/admin-user.html">Users</a>
+        <a href="/client/src/admin-feedback.html">Feedback</a>
+        <a href="/client/src/home.html">Home</a>
+    </div>
+    <div id="user_container">
+        <table id="user_table">
+            <thead>
+                <tr>
+                    <th>
+                        <p style="font-size: 2rem;" class='table_p'>Username</p>
+                    </th>
+                    <th>
+                        <p style="font-size: 2rem;" class='table_p'>Email</p>
+                    </th>
+                    <th>
+                        <p style="font-size: 2rem;" class='table_p'>Message</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="user_table_body">
+                <!-- User data will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Function to fetch users and update the table dynamically
+        window.onload = async function getUsers() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                alert("User not Authenticated.");
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:5000/api/admin/contact', {
+                    method: "GET",
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch users');
+                }
+
+                const users = await response.json();
+                const userTableBody = document.getElementById('user_table_body');
+
+                users.forEach(user => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${user.username}</td>
+                        <td id='user_email'>${user.email}</td>
+                        <td>${user.message}</td>
+                    `;
+                    userTableBody.appendChild(tr);
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        // const deleteBtn = document.getElementById('delete_btn')
+        // console.log(deleteBtn)
+    </script>
+</body>
+
+</html>

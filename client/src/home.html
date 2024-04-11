@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+  <title>Dashboard - Dragon</title>
+  <meta content="" name="description" />
+  <meta content="" name="keywords" />
+
+  <link href="../assets/img/Logo1.png" rel="apple-touch-icon" />
+  <link href="../assets/img/Logo1.png" rel="icon" />
+
+  <link href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet" />
+
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet" />
+  <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet" />
+  <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+  <link href="../assets/vendor/simple-datatables/style.css" rel="stylesheet" />
+
+  <link href="../assets/css/style.css" rel="stylesheet" />
+  <link href="../assets/css/new.css" rel="stylesheet" />
+
+</head>
+
+<body>
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="home.html" class="logo d-flex align-items-center">
+        <img src="../assets/img/Logo1.png" alt="" />
+        <span class="d-none d-lg-block">Dragon</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div>
+
+    <div class="search-bar">
+      <form id="searchForm" class="search-form d-flex align-items-center">
+        <input id="searchInput" type="text" name="query" placeholder="Type Full File Name"
+          title="Enter search keyword" />
+        <button type="submit" title="Search">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+    </div>
+
+    <nav class="header-nav ms-auto">
+      <ul class="header-nav d-flex align-items-center">
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle" href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <div class="panel">
+            <div id="contacts_details" class="contacts_details">
+              <span><a id="admin_navbar" style="display: none;" href="/client/src/admin.html">Admin</a></span>
+              <span><a href="#">About</a></span>
+              <span><a href="#contact-section">Contact</a></span>
+              <span><a href="#testimonials-section">Testimonials</a></span>
+            </div>
+            <a href="./upload.html" class="button-4" role="button">Upload</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <span id="user-name" class="d-none d-md-block dropdown-toggle ps-2">Username</span>
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6 id="user-name2">Username</h6>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="./profile.html">
+                <i class="bi bi-person"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-box-arrow-right"></i>
+                <span id="logout_btn">Sign Out</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+      <li class="nav-item">
+        <a class="nav-link " href="home.html">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <hr>
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#categories-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-btn"></i><span>Architectural</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="categories-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-menu-button-wide"></i><span>png</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="components-nav" class="nav-content collapse" data-bs-parent="#categories-nav">
+              <li>
+                <a target="_blank" href="./img_annotation.html">
+                  <i class="bi bi-circle"></i><span>P1.png</span>
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="./img_annotation.html">
+                  <i class="bi bi-circle"></i><span>P2.png</span>
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="./img_annotation.html">
+                  <i class="bi bi-circle"></i><span>P3.png</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-journal-text"></i><span>pdf</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="forms-nav" class="nav-content collapse" data-bs-parent="#categories-nav">
+              <li>
+                <a target="_blank" href="./pdf_annotations.html">
+                  <i class="bi bi-circle"></i><span>Problem_Statement.pdf</span>
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="./pdf_annotations.html">
+                  <i class="bi bi-circle"></i><span>Report.pdf</span>
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="./pdf_annotations.html">
+                  <i class="bi bi-circle"></i><span>A060_AI.pdf</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-layout-text-window"></i><span>ppt</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#categories-nav">
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>Report_Meeting.pptx</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>Report_0206.pptx</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>IPD.pptx</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#structural-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-btn"></i><span>Structural</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="structural-nav" class="nav-content collapse" data-bs-parent="#structural-nav">
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-menu-button-wide"></i><span>.docx</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="components-nav" class="nav-content collapse" data-bs-parent="#structural-nav">
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Image.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Image.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Image.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Image.name"</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-journal-text"></i><span>.pdf</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="forms-nav" class="nav-content collapse" data-bs-parent="#structural-nav">
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Pdf.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Pdf.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Pdf.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Pdf.name"</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-layout-text-window"></i><span>.csv</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#structural-nav">
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"CSV.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"CSV.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"CSV.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"CSV.name"</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#Civil-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-btn"></i><span>Civil</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="Civil-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-menu-button-wide"></i><span>.jpeg</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="components-nav" class="nav-content collapse" data-bs-parent="#Civil-nav">
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Image.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Image.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Image.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Image.name"</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-journal-text"></i><span>.pdf</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="forms-nav" class="nav-content collapse" data-bs-parent="#Civil-nav">
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Pdf.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Pdf.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Pdf.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Pdf.name"</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-layout-text-window"></i><span>.dwg</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#Civil-nav">
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>d.dwg</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>d.dwg</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>d.dwg</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#Electrical-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-btn"></i><span>Electrical</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="Electrical-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <!-- <hr> -->
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-menu-button-wide"></i><span>.xlsx</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="components-nav" class="nav-content collapse" data-bs-parent="#Electrical-nav">
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Image.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Image.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Image.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Image.name"</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-journal-text"></i><span>.pdf</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="forms-nav" class="nav-content collapse" data-bs-parent="#Electrical-nav">
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Pdf.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Pdf.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Pdf.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Pdf.name"</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-layout-text-window"></i><span>.obj</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#Electrical-nav">
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"CSV.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"CSV.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"CSV.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"CSV.name"</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#Hydraulics-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-btn"></i><span>Hydraulics</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="Hydraulics-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-menu-button-wide"></i><span>.png</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="components-nav" class="nav-content collapse" data-bs-parent="#Hydraulics-nav">
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Image.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Image.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Image.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Image.name"</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-journal-text"></i><span>.dwg</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="forms-nav" class="nav-content collapse" data-bs-parent="#Hydraulics-nav">
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Pdf.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Pdf.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Pdf.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"Pdf.name"</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+              <i class="bi bi-layout-text-window"></i><span>.pptx</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#Hydraulics-nav">
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"CSV.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"CSV.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"CSV.name"</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-circle"></i><span>"CSV.name"</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div class="filter_section">
+          <h3 class="filter_search">File Search and Filter</h3>
+          <label style="margin-bottom: '1rem';" for="fileType">Filter by File Type:</label>
+          <select id="fileType" onchange="filterFiles()">
+            <option value="all">All Files</option>
+            <option value="pdf">pdf</option>
+            <option value="docx">docx</option>
+            <option value="png">png</option>
+            <option value="pptx">ppt</option>
+            <option value="dwg">dwg</option>
+          </select>
+        </div>
+        <div class="recents">
+          <h2>Recents</h2>
+          <hr class="dropdown-divider" />
+          <ul class="recent_list">
+            <li><a target="_blank" href="./img_annotation2.html">P2.png</a></li>
+            <li><a target="_blank" href="./pdf_annotations.html">Report.pdf</a></li>
+            <li><a target="_blank" href="./img_annotation.html">P1.png</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </aside>
+
+  <main id="main" class="main">
+    <section class="section dashboard">
+      <div style="display: flex; justify-content: center; align-items: center; text-align: center; margin-bottom: 1rem;"
+        id="typing-text">
+        <h2 style="font-size: 2.5rem;">Welcome to Dragon, Document Management Service. <br> You can Save your <span
+            style="color: rgb(3, 3, 112); font-weight: bolder;" id="changing-word">.pdf</span></h2>
+      </div>
+      <!-- <h1 style="font-size: 2rem;">Welcome to Dragon, Document Management Service. <br>You can save pdf</h1> -->
+      <card class="card-body card">
+        <div class="about">
+          <div class="d1">
+            <h4 style="font-weight: bold; padding-top: 18px">
+              DRAGON: Building a Connected Future for Construction
+            </h4>
+            <p>
+              DRAGON simplifies construction project management by providing a
+              secure, central hub for all your files and documents. Access,
+              share, and collaborate seamlessly, anytime, anywhere, from any
+              device.
+            </p>
+            <br />
+            <h5 style="font-weight: bold">Empower your team to:</h5>
+            <ul>
+              <li>
+                Boost efficiency: Find what you need instantly, eliminate
+                wasted time searching.
+              </li>
+              <li>
+                Enhance collaboration: Foster seamless communication and
+                information sharing.
+              </li>
+              <li>
+                Make informed decisions: Access critical data to make
+                strategic choices quickly.
+              </li>
+            </ul>
+            <br />
+            <p style="font-weight: bold; font-size: large">
+              DRAGON: Connecting construction, building success.
+            </p>
+          </div>
+          <div class="d2">
+            <img src="../assets/img/DBMS.jpg" />
+          </div>
+        </div>
+        <div id="testimonials-section"></div>
+      </card>
+
+
+      <hr />
+      <h1 style="font-size: 3rem;" class="card-title text-center pb-0" style="margin-bottom: 5vh">
+        Testimonial
+      </h1>
+
+      <div id="testimonials" class="testimonial">
+      </div>
+
+
+      <hr style="margin-top: 5vh;">
+
+      <h1 class="card-title text-center pb-0" style="margin-bottom: 5vh">
+        Associated Companies
+      </h1>
+      <div class="logos">
+        <div class="logos-slide">
+          <img src="../assets/img/P1.jpeg" />
+          <img src="../assets/img/P2.jpeg" />
+          <img src="../assets/img/P3.jpeg" />
+          <img src="../assets/img/P4.jpeg" />
+          <img src="../assets/img/P5.jpeg" />
+          <img src="../assets/img/P6.jpeg" />
+          <img src="../assets/img/P7.jpeg" />
+          <img src="../assets/img/P8.jpeg" />
+        </div>
+
+        <div class="logos-slide">
+          <img src="../assets/img/P1.jpeg" />
+          <img src="../assets/img/P2.jpeg" />
+          <img src="../assets/img/P3.jpeg" />
+          <img src="../assets/img/P4.jpeg" />
+          <img src="../assets/img/P5.jpeg" />
+          <img src="../assets/img/P6.jpeg" />
+          <img src="../assets/img/P7.jpeg" />
+          <img src="../assets/img/P8.jpeg" />
+        </div>
+      </div>
+      <div id="contact-section"></div>
+      <hr style="margin-top: 5vh;">
+
+      <div class="pt-4 pb-2">
+        <h1 class="card-title text-center pb-0" style="margin-bottom: 5vh; margin-top: -2vh;">
+          Contact Us
+        </h1>
+      </div>
+      <div class="contact-container">
+        <!-- <div class="contact_backend"></div> -->
+        <card class="contact-info">
+          <svg xmlns="http://www.w3.org/2000/svg" class="phone" viewBox="0 0 512 512">
+            <path
+              d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" />
+          </svg>
+          <p>
+            <br /><strong>Phone:</strong> <br />
+            <a id="phoneNumber" href="#">+91 9273610826</a> <br />
+          </p>
+        </card>
+
+        <card class="contact-info">
+          <svg xmlns="http://www.w3.org/2000/svg" class="email" viewBox="0 0 512 512">
+            <path
+              d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
+          </svg>
+          <p>
+            <br />
+            <strong>Email:</strong> <br /><a href="mailto:dragon@gmail.com">dragon@gmail.com</a><br />
+          </p>
+        </card>
+
+        <card class="contact-info">
+          <svg xmlns="http://www.w3.org/2000/svg" class="linkedin" viewBox="0 0 448 512">
+            <path
+              d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z" />
+          </svg>
+          <p>
+            <br />
+            <strong>Linkedin:</strong> <br />
+            <a href="www.linkedin.com/in/dragon">www.linkedin.com/in/dragon</a>
+          </p>
+        </card>
+      </div>
+      <hr style="margin-top: 7vh;">
+      <div class="contact-main-container">
+        <card class="feedback">
+          <div class="parent">
+            <div class="card-body card" style="width: 100px">
+              <div class="pt-4 pb-2">
+                <h1 class="card-title text-center pb-0">
+                  Feedback Form
+                </h1>
+              </div>
+
+              <form id="feedback_form" class="row g-3 needs-validation" novalidate>
+                <div class="col-12">
+                  <label for="feedbackUsername" class="form-label">Name</label>
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                    <input type="text" name="username" class="form-control" id="feedbackUsername" required />
+                    <div class="invalid-feedback">
+                      Please enter your Name.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="feedbackEmail" class="form-label">Your Email</label>
+                  <input type="email" name="email" class="form-control" id="feedbackEmail" required />
+                  <div class="invalid-feedback">
+                    Please enter a valid Email adddress!
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label for="feedbackMessage" class="form-label">Feedback</label>
+                  <textarea id="feedbackMessage" name="message" placeholder="Type your message here..." required
+                    style="flex-direction: column; display: flex; width: 37vw"></textarea>
+                </div>
+
+                <div class="col-12"></div>
+                <div class="col-12">
+                  <button id="feedback_submit" class="btn btn-primary w-100" type="submit">
+                    Submit
+                  </button>
+                </div>
+                <div class="col-12"></div>
+              </form>
+            </div>
+          </div>
+        </card>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="copyright" style="font-size: large">
+      &copy; Copyright <strong><span>Dragon</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits" style="font-size: medium">
+      <div class="terms">
+        <a href="./tos.html" style="padding-right: 2%;"> Terms of Services </a>
+      </div>
+      Designed by Dragon Coders
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="../assets/vendor/echarts/echarts.min.js"></script>
+  <script src="../assets/vendor/quill/quill.min.js"></script>
+  <script src="../assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="../assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    const logoutBtn = document.getElementById('logout_btn')
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('token')
+      window.location = '/client/src/login.html'
+    })
+
+    window.onload = async () => {
+      const token = localStorage.getItem('token')
+      try {
+        if (token) {
+          const response = await fetch("http://localhost:5000/api/auth/user", {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          })
+          const data = await response.json()
+          if (response.ok) {
+            // console.log(data.userData)
+            const myUsername = document.getElementById('user-name')
+            const myUsername2 = document.getElementById('user-name2')
+            myUsername.innerText = data.userData.username
+            myUsername2.innerText = data.userData.username
+
+            document.getElementById('feedbackUsername').value = data.userData.username
+            document.getElementById('feedbackEmail').value = data.userData.email
+
+            const feedbackForm = document.getElementById('feedback_form')
+            const feedbackUsername = document.getElementById('feedbackUsername').value
+            const feedbackEmail = document.getElementById('feedbackEmail').value
+
+            feedbackForm.addEventListener('submit', async (e) => {
+              e.preventDefault()
+              const feedbackMessage = document.getElementById('feedbackMessage').value
+              const feedbackData = {
+                username: feedbackUsername,
+                email: feedbackEmail,
+                message: feedbackMessage
+              }
+              try {
+                const response = await fetch('http://localhost:5000/api/auth/contact', {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(feedbackData)
+                })
+                const data = await response.json()
+                if (response.ok) {
+                  alert(data.message)
+                  feedbackMessage.innerText = ""
+                }
+                else {
+                  console.log("Response Not Ok")
+                }
+              } catch (error) {
+                console.log(error)
+              }
+
+            })
+
+            if (data.userData.isAdmin == true) {
+              document.getElementById('admin_navbar').style.display = "inline"
+              document.getElementById('contacts_details').style.width = "21vw"
+            }
+          }
+          else {
+            console.log(data)
+          }
+        }
+
+        try {
+          const response = await fetch('http://localhost:5000/api/auth/getFeedback', {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          })
+          const data = await response.json()
+          if (response.ok) {
+            // console.log(data)
+            const testimonialsContainer = document.getElementById('testimonials');
+            data.forEach(testimonial => {
+              const card = document.createElement('card');
+              card.className = 't1';
+              card.innerHTML = `<p class='testimonials'>${testimonial.message}</p> <div class='author'>~ ${testimonial.username}</div>`;
+              testimonialsContainer.appendChild(card);
+            });
+          }
+          else {
+            console.log(data)
+          }
+        } catch (error) {
+          console.log(error)
+        }
+
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    const changingWordElement = document.getElementById('changing-word');
+    const words = ['.pdf', '.ppt', '.png', '.dwg', '.doc'];
+    let index = 0;
+
+    // Function to change the word and trigger moving animation
+    function changeWord() {
+      changingWordElement.textContent = words[index];
+      changingWordElement.classList.add('moving'); // Add class to trigger moving animation
+      index = (index + 1) % words.length;
+      setTimeout(() => {
+        changingWordElement.classList.remove('moving'); // Remove class after animation ends
+      }, 2000); // Adjust timeout to match animation duration
+    }
+
+    // Initial call to change the word
+    changeWord();
+
+    // Set interval to change the word every 2 seconds
+    setInterval(changeWord, 1500)
+  </script>
+</body>
+<script src="../public/search.js"></script>
+<script src="../public/filter.js"></script>
+
+</html>
